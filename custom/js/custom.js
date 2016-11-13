@@ -35,9 +35,10 @@ function getLatestCommitsFor(p1) {
 
 function printLatestCommits() {
     var responseObj = JSON.parse(this.responseText);
-    for (var i = 0; i < responseObj.length; i++) {
-        var obj = json[i];
-        console.log(obj.commit.message);
+    for (var i = 0; i < (responseObj.length > 5 ? 5 : responseObj.length); i++) {
+        var obj = responseObj[i];
+
+        $('#commits').append('<div class="divider"></div><div class="section"><h5><a href="' + obj.html_url + '">' + obj.commit.author.name + '</a></h5><p>' + obj.commit.message + '</p></div>')
     }
 }
 getLatestCommitsFor('web');
