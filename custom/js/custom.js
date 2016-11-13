@@ -28,9 +28,12 @@ $('.button-collapse').sideNav({
 
 function getLatestCommitsFor(p1) {
     var request = new XMLHttpRequest();
-    request.onload = printRepoCount;
+    request.onload = printLatestCommits;
     request.open('get', 'https://api.github.com/repos/tryharddood/' + p1 + '/commits', true)
     request.send()
+}
+
+function printLatestCommits() {
     var responseObj = JSON.parse(this.responseText);
     for (var i = 0; i < responseObj.length; i++) {
         var obj = json[i];
