@@ -1,3 +1,5 @@
+$('#header').load("../elements/header.html");
+
 $('.dropdown-button').dropdown({
     inDuration: 300,
     outDuration: 225,
@@ -23,4 +25,16 @@ $('.button-collapse').sideNav({
     closeOnClick: false,
     draggable: true
 });
-$('#header').load("../elements/header.html");
+
+function getLatestCommitsFor(p1) {
+    var request = new XMLHttpRequest();
+    request.onload = printRepoCount;
+    request.open('get', 'https://api.github.com/repos/tryharddood/' + p1 + '/commits', true)
+    request.send()
+    var responseObj = JSON.parse(this.responseText);
+    for (var i = 0; i < responseObj.length; i++) {
+        var obj = json[i];
+        console.log(obj.commit.message);
+    }
+}
+getLatestCommitsFor('web');
