@@ -1,4 +1,4 @@
-$('#header').load("../elements/header.html");
+$('#header').load(window.location.host + "/web" + "/elements/header.html");
 
 $('.dropdown-button').dropdown({
     inDuration: 300,
