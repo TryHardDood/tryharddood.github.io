@@ -36,7 +36,7 @@ function getLatestCommitsFor(p1) {
 function printLatestCommits() {
     var responseObj = JSON.parse(this.responseText);
     for (var i = 0; i < responseObj.length; i++) {
-        var obj = json[i];
+        var obj = responseObj[i];
         console.log(obj.commit.message);
     }
 }
