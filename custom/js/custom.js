@@ -38,7 +38,11 @@ function printLatestCommits() {
     for (var i = 0; i < (responseObj.length > 5 ? 5 : responseObj.length); i++) {
         var obj = responseObj[i];
 
+<<<<<<< HEAD
         $('#commits').append('<div class="divider"></div><div class="section"><h5><a href="' + obj.html_url + '" target="_blank">' + obj.commit.author.name + ' at ' + obj.commit.author.date +'</a></h5><p>' + obj.commit.message + '</p></div>')
+=======
+        $('#commits').append('<div class="divider"></div><div class="section"><h5><a href="' + obj.html_url + '">' + obj.commit.author.name + '</a></h5><p>' + obj.commit.message + '</p></div>')
+>>>>>>> origin/master
     }
 }
 getLatestCommitsFor('web');
