@@ -1,37 +1,57 @@
-<!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>TryHardDood.Github.IO</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html>
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
-    </head>
-    <body>
-        <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
 
-        <!-- Add your site or application content here -->
-        <p>Hello world!</p>
+<body>
+    <ul id="projects_dropdown" class="dropdown-content">
+        <li><a href="projects/advancedkitsreloaded.html">AdvancedKits</a></li>
+        <li><a href="projects/izone.html">iZone</a></li>
+        <li><a href="projects/myzone.html">myZone</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">Tools</a></li>
+    </ul>
+    <ul id="projects_dropdown_mobile" class="dropdown-content">
+        <li><a href="projects/advancedkitsreloaded.html">AdvancedKits</a></li>
+        <li><a href="projects/izone.html">iZone</a></li>
+        <li><a href="projects/myzone.html">myZone</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">Tools</a></li>
+    </ul>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Logo</a>
+            <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
 
-        <script src="https://code.jquery.com/jquery-{{JQUERY_VERSION}}.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a class="dropdown-button" href="#!" data-beloworigin="true" data-activates="projects_dropdown_mobile">Projects<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a href="index.html">Admin Login</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-menu">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a class="dropdown-button" href="#!" data-beloworigin="true" data-activates="projects_dropdown">Projects<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a href="index.html">Admin Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="getstarted" class="col s12">Get Started</div>
+    <div id="installation" class="col s12">Installation</div>
+    <div id="commands" class="col s12">Commands</div>
+    <div id="configuration" class="col s12">Configuration</div>
+    <div id="flags_and_variables" class="col s12">Flags and Variables</div>
 
-        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-        <script>
-            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
-        </script>
-        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
-        <script>function getBaseUrl() {
-    var re = new RegExp(/^.*\//);
-    return re.exec(window.location.href);
-}
-console.log(getBaseUrl());
-</script>
-    </body>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <script type="text/javascript" src="custom/js/custom.js"></script>
+</body>
+
 </html>
