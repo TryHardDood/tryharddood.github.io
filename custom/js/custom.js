@@ -23,4 +23,4 @@ $('.button-collapse').sideNav({
     closeOnClick: false,
     draggable: true
 });
-$('#header').load(window.location.host + "/web/elements/header.html");
+$('#header').load("../elements/header.html");
