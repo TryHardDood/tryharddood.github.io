@@ -23,6 +23,4 @@ $('.button-collapse').sideNav({
     closeOnClick: false,
     draggable: true
 });
-$('#header').load("ajax/test.html");
-
-console.log(window.location.host + "/web/");
+$('#header').load(window.location.host + "/web/elements/header.html");
