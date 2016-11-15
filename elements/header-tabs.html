@@ -44,29 +44,41 @@
 </nav>
 
 <script type="text/javascript">
+    function GetURLParameter(sParam) {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        for (var i = 0; i < sURLVariables.length; i++) {
+            var sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] == sParam) {
+                return sParameterName[1];
+            }
+        }
+    }​
+
     $(document).ready(function() {
         var tabElement = $('ul.tabs');
         var section = GetURLParameter("section");
 
         tabElement.tabs();
         switch (section) {
-          case "installation":
-          {
-             tabElement.tabs('select_tab', 'installation');
-          }
-          case "commands":
-          {
-             tabElement.tabs('select_tab', 'commands');
-          }
-          case "configuration":
-          {
-             tabElement.tabs('select_tab', 'configuration');
-          }
-          case "flags_and_variables":
-          {
-             tabElement.tabs('select_tab', 'flags_and_variables');
-          }
-          default: tabElement.tabs('select_tab', 'getstarted');
+            case "installation":
+                {
+                    tabElement.tabs('select_tab', 'installation');
+                }
+            case "commands":
+                {
+                    tabElement.tabs('select_tab', 'commands');
+                }
+            case "configuration":
+                {
+                    tabElement.tabs('select_tab', 'configuration');
+                }
+            case "flags_and_variables":
+                {
+                    tabElement.tabs('select_tab', 'flags_and_variables');
+                }
+            default:
+                tabElement.tabs('select_tab', 'getstarted');
         }
     });
 
