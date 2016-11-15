@@ -12,7 +12,7 @@
     <li class="divider"></li>
     <li><a href="#!">Tools</a></li>
 </ul>
-<nav>
+<nav class="nav-extended">
     <div class="nav-wrapper">
         <a href="#" class="brand-logo">Logo</a>
         <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -28,9 +28,26 @@
             <li><a href="https://tryharddood.github.io/web/index.html">Admin Login</a></li>
         </ul>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="s12 m4 l8">
+                <ul class="tabs tabs-icon tabs-transparent">
+                    <li class="tab"><a class="active" href="#getstarted"><i class="material-icons left">note</i> Get Started</a></li>
+                    <li class="tab"><a href="#installation"><i class="material-icons left">cloud_download</i> Installation</a></li>
+                    <li class="tab"><a href="#commands"><i class="material-icons left">font_download</i> Commands</a></li>
+                    <li class="tab"><a href="#configuration"><i class="material-icons left">code</i> Configuration</a></li>
+                    <li class="tab"><a href="#flags_and_variables"><i class="material-icons left">flag</i> Flags and Variables</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </nav>
 
 <script type="text/javascript">
+    $(document).ready(function() {
+        $('ul.tabs').tabs();
+    });
+
     $('.dropdown-button').dropdown({
         inDuration: 300,
         outDuration: 225,
