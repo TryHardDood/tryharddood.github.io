@@ -56,31 +56,24 @@
     };
 
     $(document).ready(function() {
-        var tabElement = $('ul.tabs');
         var section = GetURLParameter("section");
+        var tabElement = $('ul.tabs');
 
-        tabElement.tabs();
-        tabElement.tabs('select_tab', 'installation');
-        switch (section) {
-            case "installation":
-                {
+        $.when(tabElement.tabs()).then(function() {
+            console.log(section);
+            switch (section) {
+                case "installation":
                     tabElement.tabs('select_tab', 'installation');
-                }
-            case "commands":
-                {
+                case "commands":
                     tabElement.tabs('select_tab', 'commands');
-                }
-            case "configuration":
-                {
+                case "configuration":
                     tabElement.tabs('select_tab', 'configuration');
-                }
-            case "flags_and_variables":
-                {
+                case "flags_and_variables":
                     tabElement.tabs('select_tab', 'flags_and_variables');
-                }
-            default:
-                tabElement.tabs('select_tab', 'getstarted');
-        }
+                default:
+                    tabElement.tabs('select_tab', 'getstarted');
+            }
+        });
     });
 
     $('.dropdown-button').dropdown({
