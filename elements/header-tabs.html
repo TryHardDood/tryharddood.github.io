@@ -61,6 +61,8 @@
 
         $.when(tabElement.tabs()).then(function() {
             console.log(section);
+            tabElement.tabs('select_tab', 'installation');
+
             switch (section) {
                 case "installation":
                     tabElement.tabs('select_tab', 'installation');
