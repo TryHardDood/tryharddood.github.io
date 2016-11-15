@@ -64,15 +64,18 @@
 
             switch (section) {
                 case "installation":
-                    $('ul.tabs').tabs('select_tab', 'installation');
+                {
+                  tabElement.tabs('select_tab', 'installation');
+                  tabElement.tabs('select_tab', 'installation');
+                }
                 case "commands":
-                    $('ul.tabs').tabs('select_tab', 'commands');
+                    tabElement.tabs('select_tab', 'commands');
                 case "configuration":
-                    $('ul.tabs').tabs('select_tab', 'configuration');
+                    tabElement.tabs('select_tab', 'configuration');
                 case "flags_and_variables":
-                    $('ul.tabs').tabs('select_tab', 'flags_and_variables');
+                    tabElement.tabs('select_tab', 'flags_and_variables');
                 default:
-                    $('ul.tabs').tabs('select_tab', 'getstarted');
+                    tabElement.tabs('select_tab', 'getstarted');
             }
         });
     });
