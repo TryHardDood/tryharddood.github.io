@@ -59,24 +59,18 @@
         var section = GetURLParameter("section");
         var tabElement = $('ul.tabs');
 
-        $.when(tabElement.tabs()).then(function() {
-            console.log(section);
-
-            switch (section) {
-                case "installation":
-                    //tabElement.tabs('select_tab', 'installation');
-                    if ($(".tab a").id == "installation")
-                        $(".tab a").addClass("active");
-                case "commands":
-                    tabElement.tabs('select_tab', 'commands');
-                case "configuration":
-                    tabElement.tabs('select_tab', 'configuration');
-                case "flags_and_variables":
-                    tabElement.tabs('select_tab', 'flags_and_variables');
-                default:
-                    tabElement.tabs('select_tab', 'getstarted');
-            }
-        });
+        switch (section) {
+            case "installation":
+                tabElement.tabs('select_tab', 'installation');
+            case "commands":
+                tabElement.tabs('select_tab', 'commands');
+            case "configuration":
+                tabElement.tabs('select_tab', 'configuration');
+            case "flags_and_variables":
+                tabElement.tabs('select_tab', 'flags_and_variables');
+            default:
+                tabElement.tabs('select_tab', 'getstarted');
+        }
     });
 
     $('.dropdown-button').dropdown({
