@@ -65,7 +65,8 @@
             switch (section) {
                 case "installation":
                     //tabElement.tabs('select_tab', 'installation');
-                    $( ".tab a#installation" ).addClass("active");
+                    if ($(".tab a").id == "installation")
+                        $(".tab a").addClass("active");
                 case "commands":
                     tabElement.tabs('select_tab', 'commands');
                 case "configuration":
