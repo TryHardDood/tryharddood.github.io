@@ -61,11 +61,11 @@
 
         $.when(tabElement.tabs()).then(function() {
             console.log(section);
-            tabElement.tabs('select_tab', 'installation');
 
             switch (section) {
                 case "installation":
-                    tabElement.tabs('select_tab', 'installation');
+                    //tabElement.tabs('select_tab', 'installation');
+                    $( "#installation" ).addClass("active");
                 case "commands":
                     tabElement.tabs('select_tab', 'commands');
                 case "configuration":
