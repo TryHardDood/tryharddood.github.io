@@ -1,4 +1,5 @@
 $('#header').load("https://tryharddood.github.io/web/elements/header.html");
+$('#header-tabs').load("https://tryharddood.github.io/web/elements/header-tabs.html");
 
 $('.dropdown-button').dropdown({
     inDuration: 300,
