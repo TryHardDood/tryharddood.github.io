@@ -1,26 +1,3 @@
-$(document).ready(function() {
-    var section = GetURLParameter("section");
-    var tabElement = $('ul.tabs');
-
-    $.when(tabElement.tabs()).then(function() {
-        console.log(section);
-
-        switch (section) {
-            case "installation":
-                tabElement.tabs('select_tab', 'installation');
-            case "commands":
-                tabElement.tabs('select_tab', 'commands');
-            case "configuration":
-                tabElement.tabs('select_tab', 'configuration');
-            case "flags_and_variables":
-                tabElement.tabs('select_tab', 'flags_and_variables');
-            default:
-                tabElement.tabs('select_tab', 'getstarted');
-        }
-    });
-});
-
-
 $('#header').load("https://tryharddood.github.io/web/elements/header.html", function() {
     initMaterialize();
     alert("Load was performed.");
@@ -55,6 +32,26 @@ function initMaterialize() {
         edge: 'left',
         closeOnClick: false,
         draggable: true
+    });
+
+    var section = GetURLParameter("section");
+    var tabElement = $('ul.tabs');
+
+    $.when(tabElement.tabs()).then(function() {
+        console.log(section);
+
+        switch (section) {
+            case "installation":
+                tabElement.tabs('select_tab', 'installation');
+            case "commands":
+                tabElement.tabs('select_tab', 'commands');
+            case "configuration":
+                tabElement.tabs('select_tab', 'configuration');
+            case "flags_and_variables":
+                tabElement.tabs('select_tab', 'flags_and_variables');
+            default:
+                tabElement.tabs('select_tab', 'getstarted');
+        }
     });
 }
 initMaterialize();
