@@ -53,6 +53,12 @@ function initMaterialize() {
                 tabElement.tabs('select_tab', 'getstarted');
         }
     });
+
+    var checkTabs = function() {
+        $('ul.tabs').tabs();
+        var active = $('ul.tabs .active').attr('href');
+        $('.tabs-content ' + active).show();
+    };
 }
 initMaterialize();
 
