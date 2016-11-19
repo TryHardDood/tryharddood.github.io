@@ -52,7 +52,11 @@
                                 <strong class="fs-headline display-block p+" style="color: black;">Commands</strong>
 
                                 <div ng-controller="advancedkits_commandsCtrl">
-                                  <md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+                                    <div layout="row" layout-align="center center">
+                                        <div layout="row" layout-align="center center">
+    <md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+</div>
+                                    </div>
 
                                     <table class="data-table">
                                       <thead>
@@ -118,7 +122,9 @@ locale: en</ng-prism>
                             <div class="p+ tc-black m+">
                                 <strong class="fs-headline display-block p+" style="color: black;">Flags and Variables</strong>
                                 <div ng-controller="advancedkits_flagsCtrl">
-                                  <md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+                                  <div layout="row" layout-align="center center">
+    <md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+</div>
 
                                     <table class="data-table">
                                     <thead>
@@ -158,7 +164,11 @@ locale: en</ng-prism>
                     <div class=" fs-body-1 mt+">
                         <ul class="list mt++">
                             <li class="list-row list-row--multi-line list-row--has-separator">
-                                <div id="commits"><md-progress-circular md-mode="indeterminate"></md-progress-circular></div>
+                              <div id="commits">
+                                  <div layout="row" layout-align="center center">
+                                      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                                  </div>
+                              </div>
                             </li>
                         </ul>
                     </div>

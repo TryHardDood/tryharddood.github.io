@@ -49,7 +49,9 @@ The zones can be created by a player. ( If he/she has a specified permission. )
                                 <strong class="fs-headline display-block p+" style="color: black;">Commands</strong>
 
                                 <div ng-controller="izone_commandsCtrl">
-                                  <md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+                                  <div layout="row" layout-align="center center">
+    <md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+</div>
 
                                     <table class="data-table">
                                       <thead>
@@ -132,7 +134,9 @@ restriction:
                             <div class="p+ tc-black m+">
                                 <strong class="fs-headline display-block p+" style="color: black;">Flags and Variables</strong>
                                 <div ng-controller="izone_flagsCtrl">
-                                  <md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+                                  <div layout="row" layout-align="center center">
+    <md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+</div>
                                     <table class="data-table">
                                     <thead>
                                       <tr>
@@ -169,7 +173,11 @@ restriction:
                     <div class=" fs-body-1 mt+">
                         <ul class="list mt++">
                             <li class="list-row list-row--multi-line list-row--has-separator">
-                              <div id="commits"><md-progress-circular md-mode="indeterminate"></md-progress-circular></div>
+                              <div id="commits">
+                                  <div layout="row" layout-align="center center">
+                                      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                                  </div>
+                              </div>
                             </li>
                         </ul>
                     </div>
