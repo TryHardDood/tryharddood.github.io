@@ -85,37 +85,8 @@
     <script type="text/javascript" src="bower_components/angular-aria/angular-aria.min.js"></script>
     <script type="text/javascript" src="bower_components/lumx/dist/lumx.js"></script>
 
-    <script type="text/javascript">
-        var app = angular.module('myApp', ['lumx', 'ngRoute', 'ngMaterial', 'ngAnimate', 'ngAria']);
-        app.config(function($routeProvider) {
-            $routeProvider
-                .when("/", {
-                    templateUrl: "custom/templates/main.html"
-                })
-                .when("/advancedkits", {
-                    templateUrl: "custom/templates/advancedkits.html"
-                })
-                .when("/myzone", {
-                    templateUrl: "custom/templates/myzone.html"
-                })
-                .when("/izone", {
-                    templateUrl: "custom/templates/izone.html"
-                })
-                .when("/scgui", {
-                    templateUrl: "custom/templates/scgui.html"
-                });
-        });
-        app.controller('navBarController', function($scope, $mdSidenav) {
-            $scope.openLeftMenu = function() {
-                $mdSidenav('left').toggle();
-            };
-        });
-        app.filter("matchMedia", function($window) {
-            return function matchMedia(mediaQueryString) {
-                return $window.matchMedia(mediaQueryString).matches;
-            }
-        });
-    </script>
+    <script type="text/javascript" src="custom/js/app.js"></script>
+    
     <script type="text/javascript" src="custom/js/custom.js"></script>
     <script type="text/javascript" src="custom/js/prism.js"></script>
 
