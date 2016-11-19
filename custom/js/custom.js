@@ -1,83 +1,14 @@
-$('#header').load("https://tryharddood.github.io/web/elements/header.html", function() {
-    initMaterialize();
-    alert("Load was performed.");
-});
-$('#header-tabs').load("https://tryharddood.github.io/web/elements/header-tabs.html", function() {
-    initMaterialize();
-    alert("Load was performed.");
-});
-
-function initMaterialize() {
-    $('.dropdown-button').dropdown({
-        inDuration: 300,
-        outDuration: 225,
-        constrain_width: true,
-        hover: false,
-        gutter: 0,
-        belowOrigin: true,
-        alignment: 'left'
-    });
-
-    $(".dropdown-content").on({
-        mouseenter: function() {
-            $(this).parent().addClass("active");
-        },
-        mouseleave: function() {
-            $(this).parent().removeClass("active");
-        }
-    });
-
-    $('.button-collapse').sideNav({
-        menuWidth: 350,
-        edge: 'left',
-        closeOnClick: false,
-        draggable: true
-    });
-
-    var section = GetURLParameter("section");
-    var tabElement = $('ul.tabs');
-
-    $.when(tabElement.tabs()).then(function() {
-        console.log(section);
-
-        switch (section) {
-            case "installation":
-                tabElement.tabs('select_tab', 'installation');
-            case "commands":
-                tabElement.tabs('select_tab', 'commands');
-            case "configuration":
-                tabElement.tabs('select_tab', 'configuration');
-            case "flags_and_variables":
-                tabElement.tabs('select_tab', 'flags_and_variables');
-            default:
-                tabElement.tabs('select_tab', 'getstarted');
-        }
-    });
-
-    var checkTabs = function() {
-        $('ul.tabs').tabs();
-        var active = $('ul.tabs .active').attr('href');
-        $('.tabs-content ' + active).show();
-    };
+function load(data) {
+    var htmlcontent = $('#content ');
+    htmlcontent.load('custom/pages/' + data + '.html')
+    $compile(htmlcontent.contents())($scope);
 }
-initMaterialize();
-
-function GetURLParameter(sParam) {
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam) {
-            return sParameterName[1];
-        }
-    }
-};
 
 function getLatestCommitsFor(p1) {
     var request = new XMLHttpRequest();
     request.onload = printLatestCommits;
-    request.open('get', 'https://api.github.com/repos/tryharddood/' + p1 + '/commits', true)
-    request.send()
+    request.open('get', 'https://api.github.com/repos/tryharddood/' + p1 + '/commits', true);
+    request.send();
 }
 
 function printLatestCommits() {
@@ -86,6 +17,75 @@ function printLatestCommits() {
     for (var i = 0; i < lenght; i++) {
         var obj = responseObj[i];
 
-        $('#commits').append('<div class="divider"></div><div class="section"><h5><a href="' + obj.html_url + '" target="_blank">' + obj.commit.author.name + ' at ' + obj.commit.author.date + '</a></h5><p>' + obj.commit.message + '</p></div>')
+        $('#commits').append('<li class="list-row"><a href="' + obj.html_url +
+            '" target="_blank"><div class="list-row__primary"><i style="font-size: 30px;" class="mdi mdi-git"></i></div></a><div class="list-row__content"><span class="display-block tc-black">' + obj.commit.author.name + ' at ' + obj.commit
+            .author.date + '</span><span class="display-block fs-body-1 tc-black-2">' + obj.commit.message + '</span></div></li>');
     }
 }
+
+app.controller('advancedkits_commandsCtrl', function($scope, $http) {
+    $scope.loading = true;
+    $http.get("http://tryharddood.epizy.com/custom/projects/advancedkits/commands.php").then(function(response) {
+      $scope.commands = response.data.commands;
+    }).finally(function() {
+        $scope.loading = false;
+    });
+});
+
+app.controller('advancedkits_flagsCtrl', function($scope, $http) {
+    $scope.loading = true;
+    $http.get("http://tryharddood.epizy.com/custom/projects/advancedkits/flags.php").then(function(response) {
+      $scope.flags = response.data.flags;
+    }).finally(function() {
+        $scope.loading = false;
+    });
+});
+
+app.controller('myzone_commandsCtrl', function($scope, $http) {
+    $scope.loading = true;
+    $http.get("http://tryharddood.epizy.com/custom/projects/myzone/commands.php").then(function(response) {
+      $scope.commands = response.data.commands;
+    }).finally(function() {
+        $scope.loading = false;
+    });
+});
+
+app.controller('myzone_permissionsCtrl', function($scope, $http) {
+    $scope.loading = true;
+    $http.get("http://tryharddood.epizy.com/custom/projects/myzone/permissions.php").then(function(response) {
+      $scope.permissions = response.data.permissions;
+    }).finally(function() {
+        $scope.loading = false;
+    });
+
+});
+
+app.controller('izone_commandsCtrl', function($scope, $http) {
+    $scope.loading = true;
+    $http.get("http://tryharddood.epizy.com/custom/projects/izone/commands.php").then(function(response) {
+      $scope.commands = response.data.commands;
+    }).finally(function() {
+        $scope.loading = false;
+    });
+
+});
+
+app.controller('izone_flagsCtrl', function($scope, $http) {
+    $scope.loading = true;
+    $http.get("http://tryharddood.epizy.com/custom/projects/izone/flags.php").then(function(response) {
+      $scope.flags = response.data.flags;
+    }).finally(function() {
+        $scope.loading = false;
+    });
+
+});
+
+app.directive('ngPrism', ['$interpolate', function($interpolate) {
+    "use strict";
+    return {
+        restrict: 'E',
+        template: '<pre><code ng-transclude></code></pre>',
+        replace: true,
+        transclude: true
+    };
+}]);

@@ -1,0 +1,195 @@
+<div class="tc-white-1 p+" flex-container="row" flex-column="16">
+    <div flex-item="1">
+        <div class="p+"></div>
+    </div>
+    <div flex-item="10">
+        <div class="p+">
+            <div class="card">
+                <div class="p+">
+                    <img class="p+" style="display: block; margin-left: auto; margin-right: auto;" src="custom/projects/myzone/img/myzone.png" />
+                    <lx-tabs lx-active-tab="vm.activeTab">
+                        <lx-tab lx-label="Get Started">
+                            <div class="p+ tc-black m+">
+                                <strong class="fs-headline display-block p+" style="color: black;">Get Started</strong>
+                                <p>myZone is a easy to use protection system which is based on Worldguard, that allows users to perform various actions on user-selected areas</p>
+
+                                <strong class="fs-headline display-block p+" style="color: black;">Features</strong>
+                                <ol style="list-style-type: circle">
+                                    <li>Zone protection</li>
+                                    <li>Easy-to-use</li>
+                                    <li>Economy support via <a href="http://dev.bukkit.org/bukkit-plugins/vault/" target="_blank">Vault</a></li>
+                                    <li>1.7.10, 1.8.X, 1.9.4 and 1.10 support. ( It protects your ArmorStands and ItemFrames also. :) )</li>
+                                    <li>Multilanguage support ( Send me translations! Currently only &ldquo;en&rdquo; and &ldquo;hu&rdquo; available. )</li>
+                                    <li>Easy costumization</li>
+                                    <li>Update notifier</li>
+                                </ol>
+
+                                <strong class="fs-headline display-block p+" style="color: black;">Dependencies</strong>
+                                <p>If you would like to use the economy support you&rsquo;ll have to have <a href="http://dev.bukkit.org/bukkit-plugins/vault/" target="_blank">Vault</a> installed.</p>
+                            </div>
+                        </lx-tab>
+
+                        <lx-tab lx-label="Installation">
+                            <div class="p+ tc-black m+">
+                                <strong class="fs-headline display-block p+" style="color: black;">Installation</strong>
+                                <ol style="list-style-type: circle">
+                                    <li>Download <a href="#soon" target="_blank">myZone</a></li>
+                                    <li>Make sure your server is not running.</li>
+                                    <li>Copy the .jar file into your plugins directory.</li>
+                                    <li>Start the server.</li>
+                                    <li>If you made a backup of your config.yml file, stop the server and edit the newly generated config.yml file with only what you need, from the backup.</li>
+                                    <li>Start the server.</li>
+                                    <li>Enjoy!</li>
+                                </ol>
+                            </div>
+                        </lx-tab>
+
+                        <lx-tab lx-label="Commands">
+                            <div class="p+ tc-black m+">
+                                <strong class="fs-headline display-block p+" style="color: black;">Commands</strong>
+
+                                <div ng-controller="myzone_commandsCtrl">
+                                  <md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+                                    <table class="data-table">
+                                      <thead>
+                                        <tr>
+                                          <th>Command</th>
+                                          <th>Permission</th>
+                                          <th>Details</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr ng-repeat="x in commands">
+                                          <td>{{ x.Command }}</td>
+                                          <td>{{ x.Permission }}</td>
+                                          <td>{{ x.Details }}</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                </div>
+                                <div ng-controller="myzone_permissionsCtrl">
+                                  <md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+                                    <table class="data-table">
+                                      <thead>
+                                        <tr>
+                                          <th>Permission</th>
+                                          <th>Details</th>
+                                          <th>Others</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr ng-repeat="x in permissions">
+                                          <td>{{ x.Permission }}</td>
+                                          <td>{{ x.Details }}</td>
+                                          <td>{{ x.Others }}</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </lx-tab>
+                        <lx-tab lx-label="Configuration">
+                            <div class="p+ tc-black m+">
+                                <strong class="fs-headline display-block p+" style="color: black;">Configuration</strong>
+                                <p>The configuration of this plugin is very simple:</p>
+                                <ng-prism class="language-yaml"># +----------------------------------------------------+
+# <                       myZone                       >
+# <                 Configuration file                 >
+# <                     config.yml                     >
+# +----------------------------------------------------+
+
+# You can change the default localization.
+Locale: en
+
+# You don't need to give the players Worldedit permissions.
+# The players need to select a region with this tool.
+createTool: WOOD_SPADE
+
+# You don't need to give the players Worldedit permissions.
+# The players can check the zones info.
+checkTool: WOOD_SWORD
+
+Delay:
+  checkTool: 5
+
+Title:
+  Enabled: true
+
+Zone:
+  Regex: '[^a-zA-Z0-9_\p{L}+]'
+
+# Economy
+Economy:
+  Enabled: false
+  Create: 50
+  Delete: 50
+  Flag: 50
+  Expand: 50
+  Member:
+    Add: 50
+    Remove: 50
+  Owner:
+    Add: 50
+    Remove: 50
+
+# Disabled in these worlds.
+DisabledWorlds:
+  - world_nether
+  - world_the_end
+
+# Example:
+# For a 25x256x25 zone you have to add this under (50, 256, 50): myzone.zone.max-size.1:
+# (25, 256, 25): myzone.zone.max-size.2
+# When you add this permission 'myzone.zone.max-size.2' the player will have a zone restriction of (25, 256, 25).
+#
+# To restrict the max zone of a player to 10 you need to add this under 3: myzone.zone.max-zone.1
+# 10: myzone.zone.max-zone.2
+# And when you add this permission 'myzone.zone.max-zone.2' the player will have a zone restriction of 10.
+Restriction:
+  BlockedFlags:
+    - sleep
+    - pistons
+    - exit
+    - game-mode
+    - receive-chat
+    - send-chat
+  Size:
+    (-1, -1, -1): myzone.zone.max-size.unlimited
+    (50, 256, 50): myzone.zone.max-size.1
+  Zone:
+    -1: myzone.zone.max-zone.unlimited
+    3: myzone.zone.max-zone.1
+    1: myzone.zone.max-zone.2</ng-prism>
+                            </div>
+                        </lx-tab>
+                    </lx-tabs>
+                </div>
+                <div class="card__actions">
+                    <lx-button lx-type="flat" href="#" target="_blank">SpigotMC</lx-button>
+                    <lx-button lx-type="flat" href="#" target="_blank">Bukkit</lx-button>
+                    <lx-button lx-type="flat" href="#" target="_blank">Source Code</lx-button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div flex-item="4">
+        <div class="p+">
+            <div class="card">
+                <div class="p+">
+                    <span class="fs-subhead tc-black-2 display-block">Latest updates</span>
+
+                    <div class=" fs-body-1 mt+">
+                        <ul class="list mt++">
+                            <li class="list-row list-row--multi-line list-row--has-separator">
+                                <div id="commits"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    getLatestCommitsFor('myzone');
+</script>

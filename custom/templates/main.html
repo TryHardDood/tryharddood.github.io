@@ -1,0 +1,41 @@
+<div class="tc-white-1 p+" flex-container="row" flex-column="16">
+    <div flex-item="1">
+        <div class="p+"></div>
+    </div>
+    <div flex-item="10">
+        <div class="p+">
+            <div class="card">
+                <div class="p+">
+                    <strong class="fs-headline display-block" style="color: black;">Welcome to my website</strong>
+                    <span class="fs-subhead tc-black-2 display-block">It is a kinda emtpy. :D</span>
+
+                    <div class="paragraph fs-body-1 mt+" style="color: black;">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique orci a lacinia malesuada.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div flex-item="4">
+        <div class="p+">
+            <div class="card">
+                <div class="p+">
+                    <span class="fs-subhead tc-black-2 display-block">Latest updates</span>
+
+                    <div class=" fs-body-1 mt+">
+                        <ul class="list mt++">
+                            <li class="list-row list-row--multi-line list-row--has-separator">
+                                <div id="commits"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    getLatestCommitsFor('web');
+</script>

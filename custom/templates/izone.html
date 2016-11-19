@@ -1,0 +1,183 @@
+<div class="tc-white-1 p+" flex-container="row" flex-column="16">
+    <div flex-item="1">
+        <div class="p+"></div>
+    </div>
+    <div flex-item="10">
+        <div class="p+">
+            <div class="card">
+                <div class="p+">
+                    <img class="p+" style="display: block; margin-left: auto; margin-right: auto;" src="custom/projects/izone/img/izone.png" />
+                    <lx-tabs lx-active-tab="vm.activeTab">
+                        <lx-tab lx-label="Get Started">
+                            <div class="p+ tc-black m+">
+                                <strong class="fs-headline display-block p+" style="color: black;">Get Started</strong>
+                                <p>Made by TechGuard and updated by TryHardDood.
+This plugin allow you to setup custom zones for example shops, pvp areas or spawn.
+The zones can be created by a player. ( If he/she has a specified permission. )
+                                </p>
+
+                                <strong class="fs-headline display-block p+" style="color: black;">Features</strong>
+                                <ol style="list-style-type: circle">
+                                  <li>Zone protection</li>
+                                  <li>Easy-to-use</li>
+                                  <li>Update notifier</li>
+                                  <li>1.7.10, 1.8.X, 1.9.4 and 1.10 support. ( It protects your ArmorStands and ItemFrames also. )</li>
+                                  <li>Multilanguage support ( Send me translations! Currently only &ldquo;en&rdquo; and &ldquo;hu&rdquo; available. )</li>
+                                  <li>Players can use it</li>
+                                  <li>Useful flags ( like &lsquo;fly&rsquo; or &lsquo;water-flow&rsquo; )</li>
+                                </ol>
+                            </div>
+                        </lx-tab>
+
+                        <lx-tab lx-label="Installation">
+                            <div class="p+ tc-black m+">
+                                <strong class="fs-headline display-block p+" style="color: black;">Installation</strong>
+                                <ol style="list-style-type: circle">
+                                    <li>Download <a href="https://www.spigotmc.org/resources/izone.23349/" target="_blank">iZone</a></li>
+                                    <li>Make sure your server is not running.</li>
+                                    <li>Copy the .jar file into your plugins directory.</li>
+                                    <li>Start the server.</li>
+                                    <li>If you made a backup of your config.yml file, stop the server and edit the newly generated config.yml file with only what you need, from the backup.</li>
+                                    <li>Start the server.</li>
+                                    <li>Enjoy!</li>
+                                </ol>
+                            </div>
+                        </lx-tab>
+
+                        <lx-tab lx-label="Commands">
+                            <div class="p+ tc-black m+">
+                                <strong class="fs-headline display-block p+" style="color: black;">Commands</strong>
+
+                                <div ng-controller="izone_commandsCtrl">
+                                  <md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+
+                                    <table class="data-table">
+                                      <thead>
+                                        <tr>
+                                          <th>Command</th>
+                                          <th>Details</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr ng-repeat="x in commands">
+                                          <td>{{ x.Command }}</td>
+                                          <!--<td>{{ x.Permission }}</td>-->
+                                          <td>{{ x.Details }}</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </lx-tab>
+                        <lx-tab lx-label="Configuration">
+                            <div class="p+ tc-black m+">
+                                <strong class="fs-headline display-block p+" style="color: black;">Configuration</strong>
+                                <p>The configuration of this plugin is very simple:</p>
+                                <ng-prism class="language-yaml">on-create:
+  protection: true
+  monster: false
+  animal: false
+  welcome: false
+  farewell: false
+  heal: false
+  hurt: false
+  pvp: false
+  creeper: false
+  tnt: false
+  explosion: false
+  fire: false
+  restriction: false
+  jail: false
+  lightning: false
+  deathdrop: false
+  safedeath: false
+  drop: false
+  interact: true
+  enderman: false
+  god: false
+  gamemode: false
+  fly: false
+  takeitem_in: false
+  takeitem_out: false
+  giveitem_in: false
+  giveitem_out: false
+  melt: false
+  water_flow: false
+  lava_flow: false
+locale: en
+listeners:
+  healthListener: true
+tools:
+  check: WOOD_SWORD
+  define: WOOD_SPADE
+particles:
+  enabled: false
+  particle: FIREWORK_SPARK
+healing:
+  time: 3
+  amount: 1
+hurting:
+  time: 7
+  amount: 2
+restriction:
+  size:
+    (-1, -1, -1): izone.zone.max-size.unlimited
+    (50, 256, 50): izone.zone.max-size.1
+  zone:
+    '-1': izone.zone.max-zone.unlimited
+    '3': izone.zone.max-zone.1</ng-prism>
+                            </div>
+                        </lx-tab>
+                        <lx-tab lx-label="Flags and Variables">
+                            <div class="p+ tc-black m+">
+                                <strong class="fs-headline display-block p+" style="color: black;">Flags and Variables</strong>
+                                <div ng-controller="izone_flagsCtrl">
+                                  <md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+                                    <table class="data-table">
+                                    <thead>
+                                      <tr>
+                                        <th>Flag</th>
+                                        <th>Details</th>
+                                      </tr>
+                                    </thead>
+                                      <tbody>
+                                        <tr ng-repeat="x in flags">
+                                            <td>{{ x.Flag }}</td>
+                                            <td>{{ x.Details }}</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </lx-tab>
+                    </lx-tabs>
+                </div>
+                <div class="card__actions">
+                    <lx-button lx-type="flat" href="https://www.spigotmc.org/resources/izone.23349/" target="_blank">SpigotMC</lx-button>
+                    <lx-button lx-type="flat" href="#" target="_blank">Bukkit</lx-button>
+                    <lx-button lx-type="flat" href="#" target="_blank">Source Code</lx-button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div flex-item="4">
+        <div class="p+">
+            <div class="card">
+                <div class="p+">
+                    <span class="fs-subhead tc-black-2 display-block">Latest updates</span>
+
+                    <div class=" fs-body-1 mt+">
+                        <ul class="list mt++">
+                            <li class="list-row list-row--multi-line list-row--has-separator">
+                                <div id="commits"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    getLatestCommitsFor('izone');
+</script>
