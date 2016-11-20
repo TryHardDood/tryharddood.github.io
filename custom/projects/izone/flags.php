@@ -113,6 +113,10 @@
 			"Details": "Disable ice/snow melting"
 		},
 		{
+			"Flag": "TELEPORT",
+			"Details": "When set the owner can teleport to the zone with the gui"
+		},
+		{
 			"Flag": "WATER_FLOW",
 			"Details": "Disable water flow"
 		},
