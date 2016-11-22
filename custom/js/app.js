@@ -100,7 +100,7 @@
     });
     app.controller('advancedkits_commandsCtrl', function ($scope, $http) {
         $scope.loading = true;
-        $http.get("https://tryharddood.github.io/web/custom/projects/advancedkits/commands.php").then(function (response) {
+        $http.get("https://tryharddood.github.io/custom/projects/advancedkits/commands.php").then(function (response) {
             $scope.commands = response.data.commands;
         }).finally(function () {
             $scope.loading = false;
@@ -109,7 +109,7 @@
 
     app.controller('advancedkits_flagsCtrl', function ($scope, $http) {
         $scope.loading = true;
-        $http.get("https://tryharddood.github.io/web/custom/projects/advancedkits/flags.php").then(function (response) {
+        $http.get("https://tryharddood.github.io/custom/projects/advancedkits/flags.php").then(function (response) {
             $scope.flags = response.data.flags;
         }).finally(function () {
             $scope.loading = false;
@@ -118,7 +118,7 @@
 
     app.controller('myzone_commandsCtrl', function ($scope, $http) {
         $scope.loading = true;
-        $http.get("https://tryharddood.github.io/web/custom/projects/myzone/commands.php").then(function (response) {
+        $http.get("https://tryharddood.github.io/custom/projects/myzone/commands.php").then(function (response) {
             $scope.commands = response.data.commands;
         }).finally(function () {
             $scope.loading = false;
@@ -127,7 +127,7 @@
 
     app.controller('myzone_permissionsCtrl', function ($scope, $http) {
         $scope.loading = true;
-        $http.get("https://tryharddood.github.io/web/custom/projects/myzone/permissions.php").then(function (response) {
+        $http.get("https://tryharddood.github.io/custom/projects/myzone/permissions.php").then(function (response) {
             $scope.permissions = response.data.permissions;
         }).finally(function () {
             $scope.loading = false;
@@ -137,7 +137,7 @@
 
     app.controller('izone_commandsCtrl', function ($scope, $http) {
         $scope.loading = true;
-        $http.get("https://tryharddood.github.io/web/custom/projects/izone/commands.php").then(function (response) {
+        $http.get("https://tryharddood.github.io/custom/projects/izone/commands.php").then(function (response) {
             $scope.commands = response.data.commands;
         }).finally(function () {
             $scope.loading = false;
@@ -147,7 +147,7 @@
 
     app.controller('izone_flagsCtrl', function ($scope, $http) {
         $scope.loading = true;
-        $http.get("https://tryharddood.github.io/web/custom/projects/izone/flags.php").then(function (response) {
+        $http.get("https://tryharddood.github.io/custom/projects/izone/flags.php").then(function (response) {
             $scope.flags = response.data.flags;
         }).finally(function () {
             $scope.loading = false;
