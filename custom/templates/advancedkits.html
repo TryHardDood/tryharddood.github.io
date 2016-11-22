@@ -1,182 +1,190 @@
 <div class="tc-white-1 p+" flex-container="row" flex-column="16">
-    <div flex-item="1">
-        <div class="p+"></div>
-    </div>
-    <div flex-item="10">
-        <div class="p+">
-            <div class="card">
-                <div class="p+">
-                    <img class="p+" style="display: block; margin-left: auto; margin-right: auto;" src="custom/projects/advancedkits/img/advancedkits.png" />
-                    <lx-tabs lx-active-tab="vm.activeTab" elem-ready="vm.activeTab=$route.current.activeTab">
-                        <lx-tab lx-label="Get Started">
-                            <div class="p+ tc-black m+">
-                                <strong class="fs-headline display-block p+" style="color: black;">Get Started</strong>
-                                <p>AdvancedKitsReloaded is a Kit managing plugin for Minecraft servers which runs Spigot or CraftBukkit 1.8, 1.9 and 1.10. <br />With this plugin you can easily create/edit/delete your kits and you can customize it
-                                    as much as you'd like.
-                                </p>
+	<div flex-item="1">
+		<div class="p+"></div>
+	</div>
+	<div flex-item="10">
+		<div class="p+">
 
-                                <strong class="fs-headline display-block p+" style="color: black;">Features</strong>
-                                <ol style="list-style-type: circle">
-                                    <li>Timed cooldown - <em>You can restrict players from using a kit continuously. (Ex: 0.5 = half an hour )</em></li>
-                                    <li>GUI for kits - <em>You can view and buy/use kits from a simple GUI.</em></li>
-                                    <li>Economy support - <em>You can use your economy plugin, but it have to support Vault</em></li>
-                                    <li>CustomEnchantments support - <em>Works most of the time</em></li>
-                                    <li>Custom permissions - <em>You can modify the default permissions per kit</em></li>
-                                    <li>Run commands after using a kit - <em>After the player got his/her kit a command will run</em></li>
-                                    <li>Custom kit icon - <em>You can change the icon of the kit in the GUI</em></li>
-                                    <li>Update checks <em>If an update comes out, you'll get a notification</em></li>
-                                </ol>
+			<md-card>
+				<md-card-content>
+					<img class="p+" style="display: block; margin-left: auto; margin-right: auto;" src="custom/projects/advancedkits/img/advancedkits.png"/>
+					<md-tabs md-selected="$route.current.activeTab" md-stretch-tabs="always" md-dynamic-height="true">
+						<md-tab label="Get Started">
 
-                                <strong class="fs-headline display-block p+" style="color: black;">Dependencies</strong>
-                                <p>If you would like to use the buying feature you'll have to have <a href="http://dev.bukkit.org/bukkit-plugins/vault/">Vault</a> installed. </p>
-                            </div>
-                        </lx-tab>
+							<div class="p+ tc-black m+">
+								<strong class="fs-headline display-block p+" style="color: black;">Get Started</strong>
+								<p>AdvancedKitsReloaded is a Kit managing plugin for Minecraft servers which runs Spigot
+								   or CraftBukkit 1.8, 1.9 and 1.10. <br/>With this plugin you can easily
+								   create/edit/delete your kits and you can customize it
+								   as much as you'd like.
+								</p>
 
-                        <lx-tab lx-label="Installation">
-                            <div class="p+ tc-black m+">
-                                <strong class="fs-headline display-block p+" style="color: black;">Installation</strong>
-                                <ol style="list-style-type: circle">
-                                    <li>Download <a href="https://www.spigotmc.org/resources/advancedkits-reloaded.11193/" target="_blank">AdvancedKitsReloaded</a></li>
-                                    <li>Make sure your server is not running.</li>
-                                    <li>Copy the .jar file into your plugins directory.</li>
-                                    <li>Start the server.</li>
-                                    <li>If you made a backup of your config.yml file, stop the server and edit the newly generated config.yml file with only what you need, from the backup.</li>
-                                    <li>Start the server.</li>
-                                    <li>Enjoy!</li>
-                                </ol>
-                            </div>
-                        </lx-tab>
+								<strong class="fs-headline display-block p+" style="color: black;">Features</strong>
+								<ol style="list-style-type: circle">
+									<li>Timed cooldown - <em>You can restrict players from using a kit continuously.
+									                         (Ex: 0.5 = half an hour )</em></li>
+									<li>GUI for kits - <em>You can view and buy/use kits from a simple GUI.</em></li>
+									<li>Economy support - <em>You can use your economy plugin, but it have to support
+									                          Vault</em></li>
+									<li>CustomEnchantments support - <em>Works most of the time</em></li>
+									<li>Custom permissions - <em>You can modify the default permissions per kit</em>
+									</li>
+									<li>Run commands after using a kit - <em>After the player got his/her kit a command
+									                                         will run</em></li>
+									<li>Custom kit icon - <em>You can change the icon of the kit in the GUI</em></li>
+									<li>Update checks <em>If an update comes out, you'll get a notification</em></li>
+								</ol>
 
-                        <lx-tab lx-label="Commands">
-                            <div class="p+ tc-black m+">
-                                <strong class="fs-headline display-block p+" style="color: black;">Commands</strong>
+								<strong class="fs-headline display-block p+" style="color: black;">Dependencies</strong>
+								<p>If you would like to use the buying feature you'll have to have
+									<a href="http://dev.bukkit.org/bukkit-plugins/vault/">Vault</a> installed. </p>
+							</div>
 
-                                <div ng-controller="advancedkits_commandsCtrl">
-                                    <div layout="row" layout-align="center center">
-                                        <div layout="row" layout-align="center center">
-    <md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
-</div>
-                                    </div>
+						</md-tab>
+						<md-tab label="Installation">
 
-                                    <table class="data-table">
-                                      <thead>
-                                        <tr>
-                                          <th>Command</th>
-                                          <th>Permission</th>
-                                          <th>Details</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        <tr ng-repeat="x in commands">
-                                          <td>{{ x.Command }}</td>
-                                          <td>{{ x.Permission }}</td>
-                                          <td>{{ x.Details }}</td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </lx-tab>
-                        <lx-tab lx-label="Configuration">
-                            <div class="p+ tc-black m+">
-                                <strong class="fs-headline display-block p+" style="color: black;">Configuration</strong>
-                                <p>The configuration of this plugin is very simple:</p>
-                                <ng-prism class="language-yaml">
-# +----------------------------------------------------+
-# <               AdvancedKits Reloaded                >
-# <                 Configuration file                 >
-# <                     config.yml                     >
-# +----------------------------------------------------+
-# You can enable the economy hook via Vault
-# You need an Economy plugin, like Essentials
-use-economy: true
-# If this option is true, the player who buys a kit will automatically use it.
-use-on-buy: false
-# You can change the chat prefix.
-# So it's looks more unique :)
-chat-prefix: '&7[&6AdvancedKits&7]'
-# AdvancedKitsReloaded support multilanguage.
-# Currently there are the available values:
-# English: en | Hungarian: hu | Portoguese: pt | Italian: it | Finnish: fi | French: fr
-# If you'd like to translate it here:
-# https://ackuna.com/translate-/advancedkits-reloaded/
-locale: en</ng-prism>
-                                <p><strong>use-economy</strong> - If you would like to enable the buying feature you have to have [Vault][1] and this option enabled. <br />
-                                    <strong>chat-prefix</strong> - This prefix will show in chat <br />
-                                    <strong>locale</strong> - This plugin is supports more languages <br />
-                                    <strong>use-on-buy</strong> - This option allows you to enable automatic kit use on buy</p>
-                                <br/>
-                                <strong>Here's the list of completed translations:</strong>
-                                <ol style="list-style-type: circle">
-                                    <li>en - English</li>
-                                    <li>hu - Hungarian</li>
-                                    <li>pt - Portuguese</li>
-                                    <li>it - Italian</li>
-                                    <li>fi - Finnish</li>
-                                    <li>fr - French</li>
-                                    <li>ru - Russian</li>
-                                </ol>
-                            </div>
-                        </lx-tab>
-                        <lx-tab lx-label="Flags and Variables">
-                            <div class="p+ tc-black m+">
-                                <strong class="fs-headline display-block p+" style="color: black;">Flags and Variables</strong>
-                                <div ng-controller="advancedkits_flagsCtrl">
-                                  <div layout="row" layout-align="center center">
-    <md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
-</div>
+							<div class="p+ tc-black m+">
+								<strong class="fs-headline display-block p+" style="color: black;">Installation</strong>
+								<ol style="list-style-type: circle">
+									<li>Download
+										<a href="https://www.spigotmc.org/resources/advancedkits-reloaded.11193/" target="_blank">AdvancedKitsReloaded</a>
+									</li>
+									<li>Make sure your server is not running.</li>
+									<li>Copy the .jar file into your plugins directory.</li>
+									<li>Start the server.</li>
+									<li>If you made a backup of your config.yml file, stop the server and edit the newly
+									    generated config.yml file with only what you need, from the backup.
+									</li>
+									<li>Start the server.</li>
+									<li>Enjoy!</li>
+								</ol>
+							</div>
 
-                                    <table class="data-table">
-                                    <thead>
-                                      <tr>
-                                        <th>Flag</th>
-                                        <th>Default value</th>
-                                        <th>Details</th>
-                                      </tr>
-                                    </thead>
-                                      <tbody>
-                                        <tr ng-repeat="x in flags">
-                                            <td>{{ x.Flag }}</td>
-                                            <td>{{ x.DefValue }}</td>
-                                            <td>{{ x.Details }}</td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </lx-tab>
-                    </lx-tabs>
-                </div>
-                <div class="card__actions">
-                    <lx-button lx-type="flat" href="https://www.spigotmc.org/resources/advancedkits-reloaded.11193/" target="_blank">SpigotMC</lx-button>
-                    <lx-button lx-type="flat" href="https://dev.bukkit.org/bukkit-plugins/advancedkitsreloaded/" target="_blank">Bukkit</lx-button>
-                    <lx-button lx-type="flat" href="https://github.com/TryHardDood/AdvancedKitsReloaded" target="_blank">Source Code</lx-button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div flex-item="4">
-        <div class="p+">
-            <div class="card">
-                <div class="p+">
-                    <span class="fs-subhead tc-black-2 display-block">Latest updates</span>
+						</md-tab>
+						<md-tab label="Commands">
 
-                    <div class=" fs-body-1 mt+">
-                        <ul class="list mt++">
-                            <li class="list-row list-row--multi-line list-row--has-separator">
-                              <div id="commits">
-                                  <div layout="row" layout-align="center center">
-                                      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-                                  </div>
-                              </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+							<div class="p+ tc-black m+">
+								<strong class="fs-headline display-block p+" style="color: black;">Commands</strong>
+
+								<div ng-controller="advancedkits_commandsCtrl">
+									<div layout="row" layout-align="center center">
+										<div layout="row" layout-align="center center">
+											<md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+										</div>
+									</div>
+
+									<table class="data-table">
+										<thead>
+										<tr>
+											<th>Command</th>
+											<th>Permission</th>
+											<th>Details</th>
+										</tr>
+										</thead>
+										<tbody>
+										<tr ng-repeat="x in commands">
+											<td>{{ x.Command }}</td>
+											<td>{{ x.Permission }}</td>
+											<td>{{ x.Details }}</td>
+										</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+						</md-tab>
+
+						<md-tab label="Configuration">
+
+							<div class="p+ tc-black m+">
+								<strong class="fs-headline display-block p+" style="color: black;">Configuration</strong>
+								<p>The configuration of this plugin is very simple:</p>
+								<ng-prism class="language-yaml"><ng-include src="'custom/projects/advancedkits/config.yml'"></ng-include></ng-prism>
+								<p><strong>use-economy</strong> - If you would like to enable the buying feature you
+								                                have to have [Vault][1] and this option enabled. <br/>
+									<strong>chat-prefix</strong> - This prefix will show in chat <br/>
+									<strong>locale</strong> - This plugin is supports more languages <br/>
+									<strong>use-on-buy</strong> - This option allows you to enable automatic kit use on
+								                                buy</p>
+								<br/>
+								<strong>Here's the list of completed translations:</strong>
+								<ol style="list-style-type: circle">
+									<li>en - English</li>
+									<li>hu - Hungarian</li>
+									<li>pt - Portuguese</li>
+									<li>it - Italian</li>
+									<li>fi - Finnish</li>
+									<li>fr - French</li>
+									<li>ru - Russian</li>
+								</ol>
+							</div>
+
+						</md-tab>
+						<md-tab label="Flags and Variables">
+
+							<div class="p+ tc-black m+">
+								<strong class="fs-headline display-block p+" style="color: black;">Flags and
+								                                                                   Variables</strong>
+								<div ng-controller="advancedkits_flagsCtrl">
+									<div layout="row" layout-align="center center">
+										<md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+									</div>
+
+									<table class="data-table">
+										<thead>
+										<tr>
+											<th>Flag</th>
+											<th>Default value</th>
+											<th>Details</th>
+										</tr>
+										</thead>
+										<tbody>
+										<tr ng-repeat="x in flags">
+											<td>{{ x.Flag }}</td>
+											<td>{{ x.DefValue }}</td>
+											<td>{{ x.Details }}</td>
+										</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+						</md-tab>
+					</md-tabs>
+				</md-card-content>
+				<md-card-actions layout="row" layout-align="end center">
+					<md-button href="https://www.spigotmc.org/resources/advancedkits-reloaded.11193/" target="_blank">
+						SpigotMC
+					</md-button>
+					<md-button href="https://dev.bukkit.org/bukkit-plugins/advancedkitsreloaded/" target="_blank">
+						Bukkit
+					</md-button>
+					<md-button href="https://github.com/TryHardDood/AdvancedKitsReloaded" target="_blank">Source Code
+					</md-button>
+				</md-card-actions>
+			</md-card>
+
+		</div>
+	</div>
+	<div flex-item="4">
+		<div class="p+">
+			<md-card>
+				<md-card-content>
+					<h3>Latest updates</h3>
+					<ul class="list mt++">
+						<li class="list-row list-row--multi-line list-row--has-separator">
+							<div id="commits">
+								<div layout="row" layout-align="center center">
+									<md-progress-circular md-mode="indeterminate"></md-progress-circular>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</md-card-content>
+			</md-card>
+		</div>
+	</div>
 </div>
 <script>
-    getLatestCommitsFor('advancedkitsreloaded');
+	getLatestCommitsFor('advancedkitsreloaded');
 </script>

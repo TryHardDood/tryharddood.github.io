@@ -26,52 +26,7 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
 
-    <div ng-controller="navBarController">
-        <md-sidenav md-component-id="left" class="md-sidenav-left">
-            <lx-button style="width:100%" href="#/" lx-size="l" lx-type="flat"><i class="mdi mdi-home"></i> Home</lx-button>
-
-            <a class="dropdown-link dropdown-link--is-header">Plugins</a>
-            <lx-button style="width:100%" lx-type="flat" href="#advancedkits">AdvancedKitsReloaded</lx-button>
-            <lx-button style="width:100%" lx-type="flat" href="#myzone">myZone</lx-button>
-            <lx-button style="width:100%" lx-type="flat" href="#izone">iZone</lx-button>
-
-            <a class="dropdown-link dropdown-link--is-header">Tools</a>
-            <lx-button style="width:100%" lx-type="flat" href="#scgui">SCGui</lx-button>
-        </md-sidenav>
-
-        <div class="toolbar">
-            <div class="toolbar__left mr++" ng-if="'(max-width: 480px)' | matchMedia">
-                <lx-button lx-size="l" lx-color="black" lx-type="icon" ng-click="openLeftMenu();"><i class="mdi mdi-menu"></i></lx-button>
-            </div>
-            <span class="toolbar__label fs-title">TryHardDood.Github.IO</span>
-
-            <div class="toolbar__right" ng-if="'(min-width: 400px)' | matchMedia">
-                <div class="m++">
-                    <lx-button href="#/" lx-size="l" lx-type="raised"><i class="mdi mdi-home"></i> Home</lx-button>
-                    <lx-dropdown lx-position="right" lx-over-toggle="true">
-                        <lx-dropdown-toggle>
-                            <lx-button lx-size="l" lx-type="raised"><i class="mdi mdi-home"></i> Projects</lx-button>
-                        </lx-dropdown-toggle>
-
-                        <lx-dropdown-menu>
-                            <ul>
-                                <li><a class="dropdown-link dropdown-link--is-header">Plugins</a></li>
-
-                                <li class="dropdown-divider"></li>
-                                <li><a class="dropdown-link" href="#advancedkits">AdvancedKitsReloaded</a></li>
-                                <li><a class="dropdown-link" href="#myzone">myZone</a></li>
-                                <li><a class="dropdown-link" href="#izone">iZone</a></li>
-
-                                <li class="dropdown-divider"></li>
-                                <li><a class="dropdown-link dropdown-link--is-header">Tools</a></li>
-                                <li><a class="dropdown-link" href="#scgui">SCGui</a></li>
-                            </ul>
-                        </lx-dropdown-menu>
-                    </lx-dropdown>
-                </div>
-            </div>
-        </div>
-    </div>
+    <ng-include src="'custom/templates/header.html'"></ng-include>
 
     <div ng-view></div>
 

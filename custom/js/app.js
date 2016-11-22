@@ -1,7 +1,11 @@
 (function () {
 
     var app = angular.module('myApp', ['lumx', 'ngRoute', 'ngMaterial', 'ngAnimate', 'ngAria']);
+
     app.config(function ($routeProvider) {
+
+        $routeProvider.otherwise('/');
+
         $routeProvider
             .when("/", {
                 templateUrl: "custom/templates/main.html"
